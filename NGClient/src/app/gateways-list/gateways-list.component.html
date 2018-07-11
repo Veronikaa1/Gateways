@@ -1,0 +1,43 @@
+<h2>Gateways List</h2>
+<br>
+<div *ngIf="!showDevices" align="center">
+
+	<p style="color: red">{{ errorMesageGW }}</p>
+
+	<div *ngIf="errorMessageGW!=''" >{{ errorMessageGW }}</div>
+	
+	<button class="button" style="margin-bottom: 0.9em"
+		[hidden]="openInputTemplate" (click)="onClickCreate()">New
+		Gateway</button>
+
+	<br>
+	<div *ngIf="openInputTemplate">
+
+		name: <input type="text" class="form-control" [(ngModel)]="name"><br>
+		ipv4: <input type="text" class="form-control" [(ngModel)]="ipv4"><br>
+
+		<button class="button" (click)="onClickSave()">Save</button>
+
+	</div>
+	<table align="center" id="gateways">
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>IPv4</th>
+			<th></th>
+		</tr>
+		<tr *ngFor="let gateway of gateways">
+			<td>{{ gateway.id }}</td>
+			<td>{{ gateway.name }}</td>
+			<td>{{ gateway.ipv4 }}</td>
+			<td><button class="button" (click)="onDelete(gateway, $index)">Delete</button>&nbsp;
+				<button class="button" (click)="onClickDevices(gateway)">Devices</button></td>
+		</tr>
+	</table>
+</div>
+
+<div *ngIf="showDevices" align="center">
+	<app-devices-list></app-devices-list>
+	<button class="button" (click)="onClickReturn()">Back to
+		Gateways</button>
+</div>

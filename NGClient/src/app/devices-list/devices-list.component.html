@@ -1,0 +1,37 @@
+<h2>Devices List</h2>
+
+<button class="button" style="margin-bottom: 0.9em" [hidden]="openInputTemplate"
+	(click)="onClickCreate()">New Device</button>
+&nbsp;
+<div *ngIf="openInputTemplate">
+
+ 	uid:<input type="text" class="form-control" [(ngModel)]="uid"><br>
+	vendor: <input type="text" class="form-control" [(ngModel)]="vendor"><br>
+	creation date: <input type="text" class="form-control" [(ngModel)]="date"><br>
+	status: <input type="text" class="form-control" [(ngModel)]="status"><br>
+	gateway_id: <input type="text" class="form-control" [(ngModel)]="gateway_id"><br>
+	
+	<button class="button" (click)="onClickSave()">Save</button> 
+
+</div>
+
+
+<table align="center" id="devices">
+	<tr>
+		<th>UID</th>
+		<th>Vendor</th>
+		<th>Creation Date</th>
+		<th>Status</th>
+		<th>Corresponding Gateway</th>
+		<th></th>
+	</tr>
+	<tr *ngFor="let device of devices">
+		<td>{{ device.uid }}</td>
+		<td>{{ device.vendor}}</td>
+		<td>{{ device.creation_date }}</td>
+		<td>{{ device.status }}</td>
+		<td>{{ device.gateway_id }}</td>
+		<td><button class="button"
+				(click)="onDelete(device, $index)">Delete</button></td>
+	</tr>
+</table>

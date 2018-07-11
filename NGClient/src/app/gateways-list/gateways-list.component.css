@@ -1,0 +1,33 @@
+
+#gateways {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: separate;
+    width: 70%;
+}
+
+#gateways td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#gateways tr:hover {background-color: #F0F8FF;}
+
+#gateways th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #4682B4;
+    color: white;
+}
+
+.button {
+    background-color: #4682B4; 
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    color:white;
+    margin: 4px 2px;
+    cursor: pointer;
+}
